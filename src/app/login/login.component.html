@@ -1,0 +1,25 @@
+<div class="vh-100 d-flex justify-content-center align-items-center">
+
+    <div class="col-md-4 p-5 shadow-sm border rounded-3">
+        <h2 class="text-center mb-4 text-primary ">Login Form</h2>
+        <p *ngIf="account" class="text-danger">{{account}}</p>
+        <form  [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control border border-primary" formControlName="username">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control border border-primary"  formControlName="password">
+            </div>
+
+            <div class="d-grid">
+                <button class="btn btn-primary" type="submit">Login</button>
+            </div>
+        </form>
+        <div class="mt-3">
+            <p class="mb-0  text-center">Don't have an account? <a href="/register"
+                    class="text-primary fw-bold">SignUp</a></p>
+        </div>
+    </div>
+</div>

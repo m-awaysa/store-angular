@@ -1,0 +1,9 @@
+<div *ngIf="!loading" class='d-flex flex-row justify-content-evenly flex-wrap mt-5 mb-5 p-0'>
+    <a href="categories/{{cat}}/products" class="card" style="width:10rem;" *ngFor="let cat of categoriesArray;let i = index">
+        <img [src]="'assets/img/'+categoryImage[i]" class="category-img" alt="..." />
+        <div class="text-center ">
+            <h5 class="card-title ">{{cat}}</h5>
+        </div>
+    </a>
+</div>
+<app-loader  *ngIf="loading"></app-loader>

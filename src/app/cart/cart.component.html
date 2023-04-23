@@ -1,0 +1,49 @@
+<section *ngIf="!loading" class="h-100 h-custom" style="background-color: #eee;">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body p-4" *ngIf="!error">
+
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <div>
+                                <p class="mb-1">Shopping cart</p>
+                                <p class="mb-0">Fake store api has a bug which this page api doesn't work right now</p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3" *ngFor="let product of cart">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div>
+                                            <img [src]='product.image' class="img-fluid rounded-3" alt="Shopping item"
+                                                style="width: 65px;">
+                                        </div>
+                                        <div class="ms-3">
+                                            <h5>{{product.title}}</h5>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <div style="width: 50px;">
+                                            <h5 class="fw-normal mb-0">2</h5>
+                                        </div>
+                                        <div style="width: 80px;">
+                                            <h5 class="mb-0">{{product.price|currency}}</h5>
+                                        </div>
+                                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div *ngIf="error">
+                    <p class="text-center text-danger "> fakeStoreAPI doesn't work at this moment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<app-loader  *ngIf="loading"></app-loader>

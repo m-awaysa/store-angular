@@ -1,0 +1,23 @@
+<div class='my-5' *ngIf="!loading">
+    <h3 class='text-center'>Products</h3>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="term" placeholder="Product's name"  aria-label="Product's name"
+            aria-describedby="basic-addon2" />
+        <span class="input-group-text btn btn-secondary" id="basic-addon2">search</span>
+    </div>
+
+    <div class='d-flex flex-row justify-content-evenly flex-wrap '>
+        <div class="card m-2" *ngFor="let product of productArray |search:term">
+            <a href="/products/{{product.id}}" style='width:15rem'>
+                <img [src]='product.image' class='product-img' alt="..." />
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.title}}</h5>
+                    <div class="card-text text-danger">{{product.price}}</div>
+                </div>
+            </a>
+            <div class="nonvisible"></div>
+            <button class='btn btn-primary rounded-0 align-bottom cart-btn'>Add To Cart</button>
+        </div>
+    </div>
+</div>
+<app-loader  *ngIf="loading"></app-loader>
